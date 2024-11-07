@@ -25,8 +25,7 @@ sp = spotipy.Spotify(
 def GetTrackIDs():
     """
     Inputs:
-        BatchSize = The amount of tracks fetched
-                    per API call.
+        None
     Returns:
         trackIDs = A full list of track ID's from
                    a user's saved tracks library
