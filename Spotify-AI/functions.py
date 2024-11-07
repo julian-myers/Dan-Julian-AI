@@ -218,7 +218,7 @@ def Valence(trackID) -> float:
 
 
 # function GetAll() returns all audio features of given track
-def GetAllFeatures(trackID) -> dict:
+def GetAllFeaturesAsDic(trackID) -> dict:
     TrackFeatures = {
             'Acousticness': Acousticness(trackID),
             'Danceability': Danceability(trackID),
@@ -232,3 +232,25 @@ def GetAllFeatures(trackID) -> dict:
             }
 
     return TrackFeatures
+# ------------------------------------------------------------------
+
+
+# function GetAll() returns all audio features of given track
+def GetAllFeaturesAsList(trackID) -> list:
+    TrackFeatures = [
+            Acousticness(trackID),
+            Danceability(trackID),
+            Duration(trackID),
+            Energy(trackID),
+            Instrumentalness(trackID),
+            Liveness(trackID),
+            Loudness(trackID),
+            Speechiness(trackID),
+            Valence(trackID),
+            ]
+
+    return TrackFeatures
+
+
+tracks = GetTrackIDs()
+print(tracks[0])
