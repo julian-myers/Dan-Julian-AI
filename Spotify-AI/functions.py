@@ -59,3 +59,176 @@ def GetTrackIDs():
 
     return trackIDs
 # ------------------------------------------------------------------
+
+
+# function which pulls Aucousticness from audio features
+# using track ID.
+def Acousticness(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        acousticness = float between 0.0 - 1.0 which
+        represents the track's 'acousticness'
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        acousticness = audioFeatures[0]['acousticness']
+        return acousticness
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling danceability
+def Danceability(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        danceability = float between 0.0 - 1.0 which
+        represents the track's 'danceability'
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        danceability = audioFeatures[0]['danceability']
+        return danceability
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling duration of song
+def Duration(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        duration = duration of song in ms
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        duration = audioFeatures[0]['duration_ms']
+        return duration
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling energy of track
+def Energy(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        energy = 'energy' song, float in range 0 - 1
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        energy = audioFeatures[0]['energy']
+        return energy
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling instrumentallness
+def Instrumentalness(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        instrumentallness = track's 'instrumentalness', float in range 0 - 1
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        instrumentalness = audioFeatures[0]['instrumentalness']
+        return instrumentalness
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling liveness of track
+def Liveness(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        liveness = liveness of 'track', float between 0-1
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        liveness = audioFeatures[0]['liveness']
+        return liveness
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling loudness of track
+def Loudness(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        loudness = loudness of 'track', float between 0-1
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        loudness = audioFeatures[0]['loudness']
+        return loudness
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling speechiness of track
+def Speechiness(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        speechiness = speechiness of 'track', float between 0-1
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        speechiness = audioFeatures[0]['speechiness']
+        return speechiness
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function for pulling Valence of track
+def Valence(trackID) -> float:
+    """
+    Inputs:
+        trackID = unique trackID of a track
+    Returns:
+        valence = valence of 'track', float between 0-1
+    """
+    audioFeatures = sp.audio_features([trackID])
+    if audioFeatures and audioFeatures[0] is not None:
+        valence = audioFeatures[0]['valence']
+        return valence
+    else:
+        return None
+# ------------------------------------------------------------------
+
+
+# function GetAll() returns all audio features of given track
+def GetAllFeatures(trackID) -> dict:
+    TrackFeatures = {
+            'Acousticness': Acousticness(trackID),
+            'Danceability': Danceability(trackID),
+            'Duration': Duration(trackID),
+            'Energy': Energy(trackID),
+            'Instrumentalness': Instrumentalness(trackID),
+            'Livenss': Liveness(trackID),
+            'Loudness': Loudness(trackID),
+            'Speechiness': Speechiness(trackID),
+            'Valence': Valence(trackID),
+            }
+
+    return TrackFeatures
