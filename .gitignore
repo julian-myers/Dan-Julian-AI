@@ -1,2 +1,4 @@
 ai-venv
-
+.venv
+.cache
+.env
